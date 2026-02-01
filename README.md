@@ -4,7 +4,7 @@ A lovely server that says hello to you powered by gotempl and htmx!
 
 ## Prerequisites
 
-1. install `asdf` plugin manager
+1. install `asdf` plugin manager: https://asdf-vm.com/
 2. install asdf plugins:
 
 ```sh
@@ -20,9 +20,9 @@ asdf install
 
 ## VSCode Plugins
 
-go: https://marketplace.visualstudio.com/items?itemName=golang.Go
-go-templ: https://marketplace.visualstudio.com/items?itemName=a-h.templ
-htmx-tags: https://marketplace.visualstudio.com/items?itemName=otovo-oss.htmx-tags
+- go: https://marketplace.visualstudio.com/items?itemName=golang.Go
+- go-templ: https://marketplace.visualstudio.com/items?itemName=a-h.templ
+- htmx-tags: https://marketplace.visualstudio.com/items?itemName=otovo-oss.htmx-tags
 
 ## Running
 

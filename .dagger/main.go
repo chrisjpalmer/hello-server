@@ -31,6 +31,7 @@ func (m *HelloServer) Run(ctx context.Context) (*dagger.Service, error) {
 	return ctr.AsService(), nil
 }
 
+// +check
 func (m *HelloServer) Build(ctx context.Context) (*dagger.Container, error) {
 	ctr, err := m.buildCtr(ctx)
 	if err != nil {
