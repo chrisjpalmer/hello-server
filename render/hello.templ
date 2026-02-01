@@ -1,19 +1,9 @@
+// package render exposes pages for the hello server
 package render
 
-
-templ Page() {
-	<html>
-		<head>
-			<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
-		</head>
-		<body>
-			{ children... }
-		</body>
-	</html>
-}
-
+// HelloPage - the main page for the hello server
 templ HelloPage(name string) {
-	@Page() {
+	@page() {
 		<div>
 			@templ.Fragment("hello") {
 				<div id="hello">Hello there, { name }</div>
@@ -30,5 +20,16 @@ templ HelloPage(name string) {
 			</label>
 		</div>
 	}
+}
+
+templ page() {
+	<html>
+		<head>
+			<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
 }
 

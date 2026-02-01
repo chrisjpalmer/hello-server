@@ -7,15 +7,15 @@ import (
 	"os"
 	"os/signal"
 
-	"example.com/htmx-test/web"
+	"example.com/htmx-test/hello"
 )
 
 func main() {
-	port := flag.Int("port", 8080, "--port=8080")
+	port := flag.Int("port", 8080, "the port to host the server on")
 
 	flag.Parse()
 
-	srv := web.NewServer(*port)
+	srv := hello.NewServer(*port)
 
 	go func() {
 		if err := srv.Serve(); err != nil {

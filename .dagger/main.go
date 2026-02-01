@@ -1,16 +1,4 @@
-// A generated module for HtmlxTest functions
-//
-// This module has been generated via dagger init and serves as a reference to
-// basic module structure as you get started with Dagger.
-//
-// Two functions have been pre-created. You can modify, delete, or add to them,
-// as needed. They demonstrate usage of arguments and return types using simple
-// echo and grep commands. The functions can be called from the dagger CLI or
-// from one of the SDKs.
-//
-// The first line in this comment block is a short description line and the
-// rest is a long description with more detail on the module's purpose or usage,
-// if appropriate. All modules should have a short description.
+// HelloServer containerised tooling
 
 package main
 
@@ -22,7 +10,7 @@ import (
 	"golang.org/x/mod/modfile"
 )
 
-type HtmlxTest struct {
+type HelloServer struct {
 	Src *dagger.Directory
 }
 
@@ -30,11 +18,11 @@ func New(
 	// +defaultPath="/"
 	// +ignore=[".dagger/"]
 	src *dagger.Directory,
-) *HtmlxTest {
-	return &HtmlxTest{Src: src}
+) *HelloServer {
+	return &HelloServer{Src: src}
 }
 
-func (m *HtmlxTest) Run(ctx context.Context) (*dagger.Service, error) {
+func (m *HelloServer) Run(ctx context.Context) (*dagger.Service, error) {
 	ctr, err := m.Build(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("error building source: %w", err)
@@ -43,7 +31,7 @@ func (m *HtmlxTest) Run(ctx context.Context) (*dagger.Service, error) {
 	return ctr.AsService(), nil
 }
 
-func (m *HtmlxTest) Build(ctx context.Context) (*dagger.Container, error) {
+func (m *HelloServer) Build(ctx context.Context) (*dagger.Container, error) {
 	ctr, err := m.buildCtr(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("error getting build container: %w", err)
@@ -62,7 +50,7 @@ func (m *HtmlxTest) Build(ctx context.Context) (*dagger.Container, error) {
 }
 
 // +check
-func (m *HtmlxTest) CheckGenerated(ctx context.Context) error {
+func (m *HelloServer) CheckGenerated(ctx context.Context) error {
 	chgset, err := m.Generate(ctx)
 	if err != nil {
 		return fmt.Errorf("error generating templates: %w", err)
@@ -80,7 +68,7 @@ func (m *HtmlxTest) CheckGenerated(ctx context.Context) error {
 	return nil
 }
 
-func (m *HtmlxTest) Generate(ctx context.Context) (*dagger.Changeset, error) {
+func (m *HelloServer) Generate(ctx context.Context) (*dagger.Changeset, error) {
 	ctr, err := m.buildCtr(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("error getting build container: %w", err)
@@ -95,7 +83,7 @@ func withTemplGenerate(ctr *dagger.Container) *dagger.Container {
 	return ctr.WithExec([]string{"go", "tool", "templ", "generate"})
 }
 
-func (m *HtmlxTest) buildCtr(ctx context.Context) (*dagger.Container, error) {
+func (m *HelloServer) buildCtr(ctx context.Context) (*dagger.Container, error) {
 	ver, err := m.goVersion(ctx)
 	if err != nil {
 		return nil, fmt.Errorf("error getting go version: %w", err)
@@ -110,7 +98,7 @@ func (m *HtmlxTest) buildCtr(ctx context.Context) (*dagger.Container, error) {
 
 }
 
-func (m *HtmlxTest) goVersion(ctx context.Context) (string, error) {
+func (m *HelloServer) goVersion(ctx context.Context) (string, error) {
 	s, err := m.Src.File("go.mod").Contents(ctx)
 	if err != nil {
 		return "", fmt.Errorf("error getting file contents: %w", err)
