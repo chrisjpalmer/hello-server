@@ -69,6 +69,7 @@ func (m *HelloServer) CheckGenerated(ctx context.Context) error {
 	return nil
 }
 
+// +generate
 func (m *HelloServer) Generate(ctx context.Context) (*dagger.Changeset, error) {
 	ctr, err := m.buildCtr(ctx)
 	if err != nil {
