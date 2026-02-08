@@ -36,10 +36,10 @@ Browse to localhost:8080 on your computer
 
 Dagger is a workflow engine that runs in containers. Some functions are implemented in dagger to do common tasks locally and in CI.
 
-1. Run: `dagger call run up`
-2. Generate: `dagger call generate`
-3. Build: `dagger call build`
-4. Checks: `dagger checks`
+1. Run from a container: `dagger call run up`
+2. Generate any code: `dagger generate`
+3. Build the source: `dagger call build`
+4. Run any checks: `dagger checks`
 
 
 
